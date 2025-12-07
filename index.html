@@ -1,103 +1,16 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <title>GD 차트 봇</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <style>
-    body {
-      background: #0d0d0d;
-      color: #fff;
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      margin: 0;
-      padding: 20px;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 5px;
-    }
-    .sub {
-      text-align: center;
-      color: #aaa;
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-    .item {
-      background: #1c1c1c;
-      border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .title {
-      font-weight: 600;
-    }
-    .rank {
-      font-size: 18px;
-      font-weight: bold;
-      color: #00ff9d;
-    }
-    .update {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 13px;
-      color: #999;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>GD Chart Bot</title>
 </head>
 <body>
-
-  <h1>🎵 GD 멜론 차트 봇</h1>
-  <div class="sub">HOME SWEET HOME · POWER · 무제 · TAKE ME</div>
-
-  <div id="list"></div>
-
-  <div class="update" id="updateTime"></div>
-
-  <script>
-    // ★ 네가 추적하는 곡 목록
-    const songs = [
-      { title: "HOME SWEET HOME", rank: 0 },
-      { title: "POWER", rank: 0 },
-      { title: "무제(無題) (Untitled, 2014)", rank: 0 },
-      { title: "TAKE ME", rank: 0 }
-    ];
-
-    // 임시 랜덤 순위 (나중에 실시간 연동 가능)
-    function updateRanks() {
-      songs.forEach(song => {
-        song.rank = Math.floor(Math.random() * 100) + 1;
-      });
-      render();
-    }
-
-    function render() {
-      const list = document.getElementById("list");
-      list.innerHTML = "";
-
-      songs.forEach(song => {
-        const div = document.createElement("div");
-        div.className = "item";
-        div.innerHTML = `
-          <div class="title">${song.title}</div>
-          <div class="rank">#${song.rank}</div>
-        `;
-        list.appendChild(div);
-      });
-
-      const now = new Date();
-      document.getElementById("updateTime").innerText =
-        "마지막 업데이트: " + now.toLocaleTimeString();
-    }
-
-    // 첫 실행
-    updateRanks();
-
-    // 60초마다 자동 갱신
-    setInterval(updateRanks, 60000);
-  </script>
-
+  <h1>GD TOP 백 차트봇</h1>
+  <ul>
+    <li>HOME SWEET HOME</li>
+    <li>POWER</li>
+    <li>무제(無題) (Untitled, 2014)</li>
+    <li>TAKE ME</li>
+  </ul>
 </body>
 </html>
